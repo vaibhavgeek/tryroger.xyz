@@ -289,6 +289,7 @@ header .menu nav .primary .arrow {
   color: var(--darkink);
   cursor: pointer;
   overflow: hidden;
+  pointer-events: auto;
 }
 
 .meeting-btn::before {
@@ -1016,6 +1017,34 @@ header .menu nav .primary .arrow {
     width: 300px;
     height: 300px;
   }
+
+  .meter-container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .meter-bar {
+    height: 30px;
+    margin-bottom: 12px;
+  }
+
+  .meter-labels {
+    font-size: 1.1rem;
+    padding: 0;
+  }
+
+  .meter-labels span {
+    flex: 1;
+    text-align: center;
+  }
+
+  .meter-labels span:first-child {
+    text-align: left;
+  }
+
+  .meter-labels span:last-child {
+    text-align: right;
+  }
 }
 
 /* --- FAQ SECTION (LIGHT THEME) --- */
@@ -1240,5 +1269,18 @@ header .menu nav .primary .arrow {
   .features-grid,
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Mobile header & menu */
+  header .menu {
+    left: 15px;
+    top: 15px;
+  }
+
+  .meeting-btn {
+    right: 15px;
+    top: 15px;
+    padding: 10px 14px;
+    font-size: 1rem;
   }
 }

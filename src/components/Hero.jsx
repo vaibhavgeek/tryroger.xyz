@@ -58,7 +58,7 @@ function Hero({ scrollProgress = 0, launched = false }) {
   const translateY = scrollProgress * -250; // Move up significantly as we scroll
 
   return (
-    <section className="hero">
+    <section id="home" className="hero">
       <div className="hero-sticky">
         <div
           className="hero-content"
@@ -79,7 +79,7 @@ function Hero({ scrollProgress = 0, launched = false }) {
             <span className="word-companion">Companion</span>
           </h2>
 
-          <div className="hero-cta">
+          <div id="waitlist" className="hero-cta">
             <CTAButton theme="light" showCat={true} launched={launched} />
           </div>
         </div>
