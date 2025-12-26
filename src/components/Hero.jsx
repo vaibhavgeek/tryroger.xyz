@@ -51,7 +51,7 @@ export function Demo() {
 }
 
 
-function Hero({ scrollProgress = 0 }) {
+function Hero({ scrollProgress = 0, launched = false }) {
   // Calculate transform values based on scroll - VERY strong parallax effect
   const scale = 1 - (scrollProgress * 0.5); // Scale from 1 to 0.5 (much more dramatic)
   const opacity = 1 - (scrollProgress * 3); // Fade out very fast
@@ -80,7 +80,7 @@ function Hero({ scrollProgress = 0 }) {
           </h2>
 
           <div className="hero-cta">
-            <CTAButton theme="light" showCat={true} />
+            <CTAButton theme="light" showCat={true} launched={launched} />
           </div>
         </div>
       </div>

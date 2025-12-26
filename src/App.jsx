@@ -6,6 +6,9 @@ import Features from './components/Features';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
+// Set to true when the app is launched and available for download
+const launched = false;
+
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -26,8 +29,8 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Hero scrollProgress={scrollProgress} />
+      <Header launched={launched} />
+      <Hero scrollProgress={scrollProgress} launched={launched} />
 
       <About />
       <Features />

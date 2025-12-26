@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import * as motion from 'motion/react-client';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import AnyAppGrid from './AnyAppGrid';
 
 // Animation variants for features sliding from left (odd: 1, 3)
 const leftVariants = {
@@ -131,13 +133,17 @@ function Features() {
             </p>
           </div>
           <div className="feature-visual">
-            <div className="image-placeholder">
-              <p>Image Placeholder</p>
+            <div className="lottie-feature">
+              <DotLottieReact
+                src="/Dance cat.lottie"
+                loop
+                autoplay
+              />
             </div>
           </div>
         </motion.div>
 
-        {/* Feature 3: Best Swype */}
+        {/* Feature 3: Any App */}
         <motion.div
           className="feature-block"
           initial="offscreen"
@@ -147,13 +153,13 @@ function Features() {
         >
           <div className="feature-content">
             <h3 className="feature-number">3.</h3>
-            <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Swype</span></h2>
-            <div className="coming-soon-badge">Coming Soon</div>
+            <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Any App</span></h2>
+            <p className="feature-description">
+              Works seamlessly with all your favorite apps - messaging, social media, email, and more.
+            </p>
           </div>
           <div className="feature-visual">
-            <div className="image-placeholder">
-              <p>Image Placeholder</p>
-            </div>
+            <AnyAppGrid />
           </div>
         </motion.div>
 

@@ -338,7 +338,7 @@ header .menu nav .primary .arrow {
 
 .hero h1 {
   font-family: 'Shrikhand', cursive;
-  font-size: 8rem;
+  font-size: 10rem;
   text-transform: uppercase;
   margin: 0;
   line-height: 0.9;
@@ -351,17 +351,17 @@ header .menu nav .primary .arrow {
 }
 
 .hero h2 .word-your {
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: 400;
 }
 
 .hero h2 .word-contextual {
-  font-size: 9rem;
+  font-size: 11rem;
   font-weight: 700;
 }
 
 .hero h2 .word-companion {
-  font-size: 7rem;
+  font-size: 9rem;
   font-weight: 500;
 }
 
@@ -381,10 +381,10 @@ header .menu nav .primary .arrow {
 }
 
 .lottie-animation {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   position: relative;
-  bottom: -20px;
+  bottom: -25px;
   pointer-events: none;
 }
 
@@ -395,6 +395,80 @@ header .menu nav .primary .arrow {
   margin-top: 40px;
 }
 
+/* --- WAITLIST FORM --- */
+.waitlist-form {
+  display: flex;
+  align-items: stretch;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.waitlist-input {
+  padding: 16px 20px;
+  font-size: 1.6rem;
+  font-family: 'Inter', sans-serif;
+  border: none;
+  outline: none;
+  width: 260px;
+  background: #fff;
+  color: var(--darkink);
+}
+
+.waitlist-input::placeholder {
+  color: #999;
+}
+
+.waitlist-btn {
+  padding: 16px 24px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--yellow);
+  color: var(--darkink);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+.waitlist-btn:hover:not(:disabled) {
+  background: #FFC000;
+}
+
+.waitlist-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.waitlist-success {
+  padding: 16px 32px;
+  background: var(--yellow);
+  color: var(--darkink);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+  .waitlist-form {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .waitlist-input {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .waitlist-btn {
+    border-radius: 0 0 12px 12px;
+  }
+}
 
 /* --- DEMO SECTION --- */
 .demo-section {
@@ -670,6 +744,21 @@ header .menu nav .primary .arrow {
   font-size: 1.6rem;
 }
 
+/* Lottie Feature Animation */
+.lottie-feature {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lottie-feature canvas,
+.lottie-feature svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 /* Coming Soon Badge */
 .coming-soon-badge {
   display: inline-block;
@@ -683,6 +772,143 @@ header .menu nav .primary .arrow {
   border-radius: 30px;
   margin-top: 20px;
   box-shadow: 0 4px 15px rgba(255, 217, 72, 0.4);
+}
+
+/* Any App Grid */
+.any-app-grid {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.grid-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.app-icon {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.3);
+  margin: auto;
+}
+
+.app-icon.center {
+  grid-column: 4;
+  grid-row: 4;
+  width: 60px;
+  height: 60px;
+  background: var(--yellow);
+  z-index: 30;
+}
+
+.roger-center-icon {
+  font-family: 'Shrikhand', cursive;
+  font-size: 2.8rem;
+  color: var(--darkink);
+}
+
+.app-icon.top {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.app-icon.top-right {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+.app-icon.right-top {
+  grid-column: 6;
+  grid-row: 3;
+}
+
+.app-icon.right {
+  grid-column: 7;
+  grid-row: 4;
+}
+
+.app-icon.right-bottom {
+  grid-column: 6;
+  grid-row: 5;
+}
+
+.app-icon.bottom-right {
+  grid-column: 5;
+  grid-row: 6;
+}
+
+.app-icon.bottom {
+  grid-column: 4;
+  grid-row: 7;
+}
+
+.app-icon.top-left {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.app-icon.bottom-left {
+  grid-column: 3;
+  grid-row: 6;
+}
+
+.app-icon.left {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+/* Animated Beams Container */
+.beams-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.animated-beam-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .app-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .app-icon.center {
+    width: 50px;
+    height: 50px;
+  }
+
+  .app-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .roger-center-icon {
+    font-size: 2.2rem;
+  }
 }
 
 /* FAQ Accordion in Features */
@@ -784,6 +1010,11 @@ header .menu nav .primary .arrow {
 
   .feature-title {
     font-size: 3.5rem;
+  }
+
+  .lottie-feature {
+    width: 300px;
+    height: 300px;
   }
 }
 
