@@ -121,10 +121,10 @@ function Features() {
                   className="tone-demo-image"
                 />
                 <div className="tone-bubbles">
-                  <div className="tone-bubble bubble-warn">
+                  <div className="tone-bubble bubble-warn bubble-warn-mobile bubble-warn-tablet bubble-warn-small">
                     Warns you about the tone
                   </div>
-                  <div className="tone-bubble bubble-suggest">
+                  <div className="tone-bubble bubble-suggest bubble-suggest-mobile bubble-suggest-tablet bubble-suggest-small">
                     Suggests a better response
                   </div>
                 </div>

@@ -1143,13 +1143,52 @@ header .menu nav .primary .arrow {
     padding: 8px 12px;
   }
 
-  .bubble-warn {
-    right: -20px;
-    bottom: 30px;
+  .bubble-warn-mobile {
+    right: -10px;
+    bottom: 80px;
   }
 
-  .bubble-suggest {
-    bottom: -15px;
+  .bubble-suggest-mobile {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 481px) and (max-width: 768px) {
+  .bubble-warn-tablet {
+    right: -30px;
+    bottom: 70px;
+  }
+
+  .bubble-suggest-tablet {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .tone-demo-image {
+    width: 240px;
+  }
+
+  .tone-bubble {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .bubble-warn-small {
+    right: 0px;
+    bottom: 70px;
+  }
+
+  .bubble-suggest-small {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
   }
 }
 
