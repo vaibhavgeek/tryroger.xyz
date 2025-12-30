@@ -661,7 +661,10 @@ header .menu nav .primary .arrow {
   font-family: 'Shrikhand', cursive;
   font-weight: 400;
 }
-
+.feature-subheading {
+  font-size: 2.2rem;
+  font-family: 'Inconsolata', monospace;
+}
 .feature-description {
   font-size: 1.8rem;
   line-height: 1.8;
@@ -670,10 +673,10 @@ header .menu nav .primary .arrow {
 }
 
 .feature-subtext {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
+  
 }
 
 .feature-visual {
@@ -728,6 +731,79 @@ header .menu nav .primary .arrow {
   font-size: 1.4rem;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tone Demo Section */
+.tone-demo-container {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tone-demo-image {
+  width: 400px;
+  height: auto;
+  border-radius: 12px;
+  opacity: 0.8;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tone-bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.tone-bubble {
+  background: #FFF2BD;
+  color: var(--darkink);
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(255, 217, 72, 0.4);
+  position: absolute;
+}
+
+/* "Warns you about the tone" - bottom right with left-pointing arrow */
+.bubble-warn {
+  right: -68px;
+  bottom: 90px;
+  animation: bubblePulseWarn 2s ease-in-out infinite;
+}
+
+
+/* "Suggests a better response" - bottom center with upward-pointing arrow */
+.bubble-suggest {
+  left: 45%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  animation: bubblePulseSuggest 2s ease-in-out infinite 0.3s;
+}
+
+
+@keyframes bubblePulseWarn {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes bubblePulseSuggest {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.02);
+  }
 }
 
 /* Image Placeholder */
@@ -1044,6 +1120,28 @@ header .menu nav .primary .arrow {
 
   .meter-labels span:last-child {
     text-align: right;
+  }
+
+  .tone-demo-container {
+    margin-top: 20px;
+  }
+
+  .tone-demo-image {
+    width: 280px;
+  }
+
+  .tone-bubble {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  .bubble-warn {
+    right: -20px;
+    bottom: 30px;
+  }
+
+  .bubble-suggest {
+    bottom: -15px;
   }
 }
 

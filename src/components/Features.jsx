@@ -89,11 +89,11 @@ function Features() {
           <div className="feature-content">
             <h3 className="feature-number">1.</h3>
             <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Relationships</span></h2>
-            <p className="feature-description">
-              A meter that tells you about tone & suggest changes
+            <p className="feature-subheading">
+              Don't ruin your relationships over an angry text. 
             </p>
             <p className="feature-subtext">
-              This helps you course correct your words.
+              Roger warns you by changing it's colors when you are about to share an angry/overtly excited/passive aggresive text. We also suggest a better text you can send instead.
             </p>
           </div>
           <div className="feature-visual">
@@ -111,6 +111,23 @@ function Features() {
                 <span>Negative</span>
                 <span>Neutral</span>
                 <span>Positive</span>
+              </div>
+
+              {/* Tone demo with image and text bubbles */}
+              <div className="tone-demo-container">
+                <img
+                  src="/image_tone.jpg"
+                  alt="Tone detection demo"
+                  className="tone-demo-image"
+                />
+                <div className="tone-bubbles">
+                  <div className="tone-bubble bubble-warn">
+                    Warns you about the tone
+                  </div>
+                  <div className="tone-bubble bubble-suggest">
+                    Suggests a better response
+                  </div>
+                </div>
               </div>
             </div>
           </div>

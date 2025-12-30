@@ -74,9 +74,9 @@ function Hero({ scrollProgress = 0, launched = false }) {
 
           <br/>
           <h2>
-            <span className="word-your">Your</span> <br/>
-            <span className="word-contextual">Contextual</span> <br/>
-            <span className="word-companion">Companion</span>
+            <span className="word-your">AI</span> <br/>
+            <span className="word-contextual">in your</span> <br/>
+            <span className="word-companion">keyboard</span>
           </h2>
 
           <div id="waitlist" className="hero-cta">
