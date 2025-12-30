@@ -74,7 +74,7 @@ function Hero({ scrollProgress = 0, launched = false }) {
 
           <br/>
           <h2>
-            <span className="word-your">AI</span> <br/>
+            <span className="word-your">AI Companion</span> <br/>
             <span className="word-contextual">in your</span> <br/>
             <span className="word-companion">keyboard</span>
           </h2>

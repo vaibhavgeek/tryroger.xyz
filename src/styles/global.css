@@ -822,13 +822,21 @@ header .menu nav .primary .arrow {
 }
 
 /* Lottie Feature Animation */
+.lottie-center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -60px 0 -40px;
+}
+
 .lottie-feature {
-  width: 400px;
-  height: 400px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 
 .lottie-feature canvas,
 .lottie-feature svg {

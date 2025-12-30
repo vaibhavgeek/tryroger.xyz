@@ -90,7 +90,7 @@ function Features() {
             <h3 className="feature-number">1.</h3>
             <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Relationships</span></h2>
             <p className="feature-subheading">
-              Don't ruin your relationships over an angry text. 
+              Don't ruin your relationships over an angry text.
             </p>
             <p className="feature-subtext">
               Roger warns you by changing it's colors when you are about to share an angry/overtly excited/passive aggresive text. We also suggest a better text you can send instead.
@@ -133,6 +133,17 @@ function Features() {
           </div>
         </motion.div>
 
+        {/* Centered Lottie Animation */}
+        <div className="lottie-center-wrapper">
+          <div className="lottie-feature">
+            <DotLottieReact
+              src="/Dance cat.lottie"
+              loop
+              autoplay
+            />
+          </div>
+        </div>
+
         {/* Feature 2: The Contextual Companion */}
         <motion.div
           className="feature-block"
@@ -144,18 +155,19 @@ function Features() {
           <div className="feature-content">
             <h3 className="feature-number">2.</h3>
             <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Decisions</span></h2>
-            <p className="feature-description">
-              Just copy text to add to context, this brings the right context to
-              conversation and the conversation handler suggests changes to be made.
+            <p className="feature-subheading">
+              Stop the Copy Paste Madness
             </p>
+            <p className="feature-subtext">
+              Roger also helps with what to text and not just how. Want to get attention of right people? Comment on their X Post with Roger.
+            </p>
+
+
+           
           </div>
           <div className="feature-visual">
-            <div className="lottie-feature">
-              <DotLottieReact
-                src="/Dance cat.lottie"
-                loop
-                autoplay
-              />
+            <div className="image-placeholder">
+              Image placeholder
             </div>
           </div>
         </motion.div>
