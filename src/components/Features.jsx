@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import * as motion from 'motion/react-client';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import AnyAppGrid from './AnyAppGrid';
 
 // Animation variants for features sliding from left (odd: 1, 3)
 const leftVariants = {
@@ -79,7 +78,7 @@ function Features() {
 
         {/* Feature 1: Saved countless relationships */}
         <motion.div
-          className="feature-block"
+          className="feature-block feature-normal"
           ref={meterRef}
           initial="offscreen"
           whileInView="onscreen"
@@ -146,7 +145,7 @@ function Features() {
 
         {/* Feature 2: The Contextual Companion */}
         <motion.div
-          className="feature-block"
+          className="feature-block feature-reverse"
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ amount: 0.3 }}
@@ -163,18 +162,31 @@ function Features() {
             </p>
 
 
-           
+
           </div>
           <div className="feature-visual">
-            <div className="image-placeholder">
-              Image placeholder
+            <div className="decision-images-container">
+              <img src="/dec_1.jpg" alt="Social media context example" className="decision-image decision-image-1" />
+              <img src="/dec2_2.jpg" alt="Roger Cat response suggestions" className="decision-image decision-image-2" />
+
+              <div className="decision-bubbles">
+                <div className="decision-bubble bubble-copy-content bubble-copy-mobile bubble-copy-tablet bubble-copy-small">
+                  Copy content to add to roger memory
+                </div>
+                <div className="decision-bubble bubble-down-button bubble-down-mobile bubble-down-tablet bubble-down-small">
+                  Click on down button to input it
+                </div>
+                <div className="decision-bubble bubble-chat-roger bubble-chat-mobile bubble-chat-tablet bubble-chat-small">
+                  Chat with roger
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Feature 3: Any App */}
+        {/* Feature 3: Swype */}
         <motion.div
-          className="feature-block"
+          className="feature-block feature-normal"
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ amount: 0.3 }}
@@ -182,13 +194,18 @@ function Features() {
         >
           <div className="feature-content">
             <h3 className="feature-number">3.</h3>
-            <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Any App</span></h2>
-            <p className="feature-description">
-              Works seamlessly with all your favorite apps - messaging, social media, email, and more.
+            <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Swype</span></h2>
+            <p className="feature-subheading">
+              The best swype algorithm there is.
+            </p>
+            <p className="feature-subtext">
+              The iOS keyboards' swiping recognition annoyed us, so we sent our engineer to a cave to build out the best algorithm there is for gesture typing, and he delivered.
             </p>
           </div>
           <div className="feature-visual">
-            <AnyAppGrid />
+            <div className="image-placeholder">
+              Image placeholder
+            </div>
           </div>
         </motion.div>
 

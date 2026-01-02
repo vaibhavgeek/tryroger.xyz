@@ -627,7 +627,7 @@ header .menu nav .primary .arrow {
   padding: 60px 0;
 }
 
-.feature-block:nth-child(even) {
+.feature-block.feature-reverse {
   flex-direction: row-reverse;
 }
 
@@ -821,6 +821,125 @@ header .menu nav .primary .arrow {
   font-size: 1.6rem;
 }
 
+/* Decision Images Container */
+.decision-images-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.decision-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.decision-image-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: fadeOutFirst 6s ease-in-out infinite;
+}
+
+.decision-image-2 {
+  position: relative;
+  z-index: 1;
+  animation: fadeInSecond 6s ease-in-out infinite;
+}
+
+@keyframes fadeOutFirst {
+  0%, 48% {
+    opacity: 0.8;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInSecond {
+  0%, 48% {
+    opacity: 0;
+  }
+  50%, 100% {
+    opacity: 0.8;
+  }
+}
+
+/* Decision Bubbles Container */
+.decision-bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Decision Bubble Base Styles */
+.decision-bubble {
+  background: #FFF2BD;
+  color: var(--darkink);
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(255, 217, 72, 0.4);
+  position: absolute;
+  opacity: 0;
+}
+
+/* Bubble 1: "Copy content to add to roger memory" */
+.bubble-copy-content {
+  top: 23%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bubbleFadeFirst 6s ease-in-out infinite;
+}
+
+/* Bubble 2: "Click on down button to input it" */
+.bubble-down-button {
+  right: 10%;
+  top: 57%;
+  transform: translateY(-50%);
+  animation: bubbleFadeSecond 6s ease-in-out infinite;
+}
+
+/* Bubble 3: "Chat with roger" */
+.bubble-chat-roger {
+  left: 50%;
+  bottom: 3%;
+  transform: translateX(-50%);
+  animation: bubbleFadeSecond 6s ease-in-out infinite 0.2s;
+}
+
+/* Animation for first image bubble */
+@keyframes bubbleFadeFirst {
+  0%, 48% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Animation for second image bubbles */
+@keyframes bubbleFadeSecond {
+  0%, 48% {
+    opacity: 0;
+  }
+  50%, 100% {
+    opacity: 1;
+  }
+}
+
 /* Lottie Feature Animation */
 .lottie-center-wrapper {
   display: flex;
@@ -862,7 +981,7 @@ header .menu nav .primary .arrow {
 /* Any App Grid */
 .any-app-grid {
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   aspect-ratio: 1;
   position: relative;
 }
@@ -874,7 +993,7 @@ header .menu nav .primary .arrow {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
-  gap: 8px;
+  gap: 12px;
 }
 
 .app-icon {
@@ -883,8 +1002,8 @@ header .menu nav .primary .arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.3);
@@ -894,15 +1013,15 @@ header .menu nav .primary .arrow {
 .app-icon.center {
   grid-column: 4;
   grid-row: 4;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background: var(--yellow);
   z-index: 30;
 }
 
 .roger-center-icon {
   font-family: 'Shrikhand', cursive;
-  font-size: 2.8rem;
+  font-size: 3.6rem;
   color: var(--darkink);
 }
 
@@ -914,6 +1033,7 @@ header .menu nav .primary .arrow {
 .app-icon.top-right {
   grid-column: 5;
   grid-row: 2;
+  transform: translateY(20%);
 }
 
 .app-icon.right-top {
@@ -934,6 +1054,7 @@ header .menu nav .primary .arrow {
 .app-icon.bottom-right {
   grid-column: 5;
   grid-row: 6;
+  transform: translateY(-20%);
 }
 
 .app-icon.bottom {
@@ -944,11 +1065,13 @@ header .menu nav .primary .arrow {
 .app-icon.top-left {
   grid-column: 3;
   grid-row: 2;
+  transform: translateX(-70%);
 }
 
 .app-icon.bottom-left {
   grid-column: 3;
   grid-row: 6;
+  transform: translateX(-70%);
 }
 
 .app-icon.left {
@@ -1087,8 +1210,8 @@ header .menu nav .primary .arrow {
 }
 
 @media (max-width: 768px) {
-  .feature-block,
-  .feature-block:nth-child(even) {
+  .feature-block.feature-normal,
+  .feature-block.feature-reverse {
     flex-direction: column;
     gap: 40px;
   }
@@ -1153,6 +1276,28 @@ header .menu nav .primary .arrow {
     transform: translateX(-50%);
     bottom: 5px;
   }
+
+  .decision-bubble {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  .bubble-copy-mobile {
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bubble-down-mobile {
+    right: 5%;
+    top: 45%;
+  }
+
+  .bubble-chat-mobile {
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+  }
 }
 
 /* Tablet styles */
@@ -1166,6 +1311,19 @@ header .menu nav .primary .arrow {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0px;
+  }
+
+  .bubble-copy-tablet {
+    top: 18%;
+  }
+
+  .bubble-down-tablet {
+    right: 8%;
+    top: 48%;
+  }
+
+  .bubble-chat-tablet {
+    bottom: 12%;
   }
 }
 
@@ -1189,6 +1347,73 @@ header .menu nav .primary .arrow {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0px;
+  }
+
+  .decision-bubble {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .bubble-copy-small {
+    top: 12%;
+  }
+
+  .bubble-down-small {
+    right: 2%;
+    top: 42%;
+  }
+
+  .bubble-chat-small {
+    bottom: 8%;
+  }
+}
+
+/* --- WORKS ON ANY APP SECTION (LIGHT THEME) --- */
+.works-any-app-section {
+  background: var(--lightgrey);
+  color: var(--darkink);
+  padding: 100px 40px 120px;
+}
+
+.works-any-app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.works-any-app-title {
+  font-family: 'Shrikhand', cursive;
+  font-size: 6rem;
+  margin-bottom: 60px;
+  color: var(--darkink);
+  text-transform: uppercase;
+  text-wrap: balance;
+  line-height: 1.1;
+}
+
+.works-any-app-visual {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Override AnyAppGrid sizes for this section */
+.works-any-app-visual .any-app-grid {
+  max-width: 700px;
+}
+
+@media (max-width: 768px) {
+  .works-any-app-section {
+    padding: 80px 20px 80px;
+  }
+
+  .works-any-app-title {
+    font-size: 4rem;
+    margin-bottom: 40px;
   }
 }
 

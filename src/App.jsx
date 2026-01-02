@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Features from './components/Features';
+import WorksOnAnyApp from './components/WorksOnAnyApp';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
@@ -34,6 +35,7 @@ function App() {
 
       <About />
       <Features />
+      <WorksOnAnyApp />
       <FAQ />
       <Footer />
     </>

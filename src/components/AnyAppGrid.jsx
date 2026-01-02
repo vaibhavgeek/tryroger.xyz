@@ -83,16 +83,16 @@ const AnimatedBeam = ({ id, path, delay }) => {
   return (
     <svg
       fill="none"
-      width="400"
-      height="400"
+      width="600"
+      height="600"
       xmlns="http://www.w3.org/2000/svg"
       className="animated-beam-svg"
-      viewBox="0 0 400 400"
+      viewBox="0 0 600 600"
     >
       {/* Background path */}
       <path
         d={path}
-        stroke="rgba(255,255,255,0.15)"
+        stroke="rgba(0,0,0,0.15)"
         strokeWidth="2"
         strokeLinecap="round"
         fill="none"
@@ -172,19 +172,19 @@ function AnyAppGrid() {
     { icon: <UserIcon />, position: 'left', label: 'User' },
   ];
 
-  // Center point (200, 200) in 400x400 viewBox
+  // Center point (300, 300) in 600x600 viewBox
   // Define paths from each icon position to center
   const beamPaths = [
-    { id: 1, path: "M 200,50 Q 200,50 200,200", delay: 0 },      // top to center
-    { id: 2, path: "M 280,80 Q 240,80 200,200", delay: 0.2 },    // top-right to center
-    { id: 3, path: "M 320,140 Q 260,140 200,200", delay: 0.4 },  // right-top to center
-    { id: 4, path: "M 350,200 Q 275,200 200,200", delay: 0.6 },  // right to center
-    { id: 5, path: "M 320,260 Q 260,260 200,200", delay: 0.8 },  // right-bottom to center
-    { id: 6, path: "M 280,320 Q 240,320 200,200", delay: 1.0 },  // bottom-right to center
-    { id: 7, path: "M 200,350 Q 200,350 200,200", delay: 1.2 },  // bottom to center
-    { id: 8, path: "M 120,80 Q 160,80 200,200", delay: 1.4 },    // top-left to center
-    { id: 9, path: "M 120,320 Q 160,320 200,200", delay: 1.6 },  // bottom-left to center
-    { id: 10, path: "M 50,200 Q 125,200 200,200", delay: 1.8 },  // left to center
+    { id: 1, path: "M 300,75 Q 300,75 300,300", delay: 0 },       // top to center (col 4, row 1)
+    { id: 2, path: "M 385,160 Q 342,160 300,300", delay: 0.2 },   // top-right/Messages to center (col 5, row 2)
+    { id: 3, path: "M 470,215 Q 385,215 300,300", delay: 0.4 },   // right-top to center (col 6, row 3)
+    { id: 4, path: "M 525,300 Q 412,300 300,300", delay: 0.6 },   // right to center (col 7, row 4)
+    { id: 5, path: "M 470,385 Q 385,385 300,300", delay: 0.8 },   // right-bottom to center (col 6, row 5)
+    { id: 6, path: "M 385,440 Q 342,440 300,300", delay: 1.0 },   // bottom-right/LinkedIn to center (col 5, row 6)
+    { id: 7, path: "M 300,525 Q 300,525 300,300", delay: 1.2 },   // bottom to center (col 4, row 7)
+    { id: 8, path: "M 160,120 Q 230,120 300,300", delay: 1.4 },   // top-left to center
+    { id: 9, path: "M 160,480 Q 230,480 300,300", delay: 1.6 },   // bottom-left to center
+    { id: 10, path: "M 75,300 Q 187,300 300,300", delay: 1.8 },   // left to center (col 1, row 4)
   ];
 
   return (
