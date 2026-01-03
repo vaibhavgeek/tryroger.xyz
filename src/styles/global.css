@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif; 
   color: var(--darkink);
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -29,7 +29,7 @@ body::before {
   height: 100%;
   background-image: url('/bg.png');
   background-repeat: repeat;
-  background-size: 1400px;
+  background-size: 450px;
   opacity: var(--bg-opacity);
   z-index: -1;
   pointer-events: none;
@@ -408,7 +408,7 @@ header .menu nav .primary .arrow {
   width: 120px;
   height: 120px;
   position: relative;
-  bottom: -20px;
+  bottom: -28px;
   pointer-events: none;
 }
 
