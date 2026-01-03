@@ -8,16 +8,19 @@ html, body {
 
 html {
   font-size: 62.5%; /* 1rem = 10px */
+  background: var(--lightgrey);
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--lightgrey);
+  background: transparent;
   color: var(--darkink);
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  position: relative;
 }
+
 
 :root {
   /* Easing */
@@ -34,6 +37,9 @@ body {
   --yellow: #FFD948;
 
   --gutter: 24px;
+
+  /* Background */
+  --bg-opacity: 0.055;
 }
 
 *, *::before, *::after {
@@ -310,6 +316,25 @@ header .menu nav .primary .arrow {
   background-color: #FFC000;
 }
 
+/* --- BACKGROUND PATTERN FOR LIGHT SECTIONS --- */
+.hero-sticky::before,
+.demo-section::before,
+.works-any-app-section::before,
+.faq-section-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/bg.png');
+  background-repeat: repeat;
+  background-size: 1400px;
+  opacity: var(--bg-opacity);
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* --- HERO SECTION --- */
 .hero {
   position: relative;
@@ -385,7 +410,7 @@ header .menu nav .primary .arrow {
   width: 120px;
   height: 120px;
   position: relative;
-  bottom: -25px;
+  bottom: -20px;
   pointer-events: none;
 }
 
@@ -468,6 +493,12 @@ header .menu nav .primary .arrow {
 
   .waitlist-btn {
     border-radius: 0 0 12px 12px;
+  }
+
+  .lottie-animation {
+    width: 70px;
+    height: 70px;
+    bottom: -15px;
   }
 }
 
@@ -1370,6 +1401,7 @@ header .menu nav .primary .arrow {
 
 /* --- WORKS ON ANY APP SECTION (LIGHT THEME) --- */
 .works-any-app-section {
+  position: relative;
   background: var(--lightgrey);
   color: var(--darkink);
   padding: 100px 40px 120px;
@@ -1419,6 +1451,7 @@ header .menu nav .primary .arrow {
 
 /* --- FAQ SECTION (LIGHT THEME) --- */
 .faq-section-light {
+  position: relative;
   background: var(--lightgrey); /* Light background */
   color: var(--darkink);
   padding: 100px 40px;
@@ -1552,9 +1585,17 @@ header .menu nav .primary .arrow {
 
 .footer-content {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 60px;
   margin-bottom: 60px;
+}
+
+.footer-section:last-child {
+  text-align: right;
+}
+
+.footer-section:last-child ul {
+  text-align: right;
 }
 
 .footer-section h3 {
