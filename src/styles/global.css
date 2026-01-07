@@ -48,7 +48,7 @@ body::before {
   --lightpurple: #A88BFA;
   --midpurple: #5B21B6;
   --darkink: #2F2F2F;
-  --yellow: #FFD948;
+  --yellow: #FFC857;
 
   --gutter: 24px;
 
@@ -880,6 +880,14 @@ header .menu nav .primary .arrow {
   animation: fadeInSecond 6s ease-in-out infinite;
 }
 
+.swype-demo-gif {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
 @keyframes fadeOutFirst {
   0%, 48% {
     opacity: 0.8;
@@ -1043,14 +1051,23 @@ header .menu nav .primary .arrow {
   grid-row: 4;
   width: 80px;
   height: 80px;
-  background: var(--yellow);
+  background: #FFC857;
   z-index: 30;
 }
 
 .roger-center-icon {
-  font-family: 'Shrikhand', cursive;
-  font-size: 3.6rem;
-  color: var(--darkink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.roger-center-logo {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .app-icon.top {
@@ -1142,9 +1159,6 @@ header .menu nav .primary .arrow {
     height: 24px;
   }
 
-  .roger-center-icon {
-    font-size: 2.2rem;
-  }
 }
 
 /* FAQ Accordion in Features */

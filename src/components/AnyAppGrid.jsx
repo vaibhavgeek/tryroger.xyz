@@ -74,7 +74,7 @@ const UserIcon = () => (
 
 const RogerIcon = () => (
   <div className="roger-center-icon">
-    <span>R</span>
+    <img src="/logo_180.png" alt="Roger" className="roger-center-logo" />
   </div>
 );
 

@@ -203,9 +203,11 @@ function Features() {
             </p>
           </div>
           <div className="feature-visual">
-            <div className="image-placeholder">
-              Image placeholder
-            </div>
+            <img
+              src="/swype.gif"
+              alt="Roger Swype gesture typing demo"
+              className="swype-demo-gif"
+            />
           </div>
         </motion.div>
 
