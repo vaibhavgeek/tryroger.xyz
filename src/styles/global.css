@@ -226,9 +226,25 @@ header .menu.collapsed nav::after {
 
 /* Hover State (Open) */
 header .menu.collapsed:hover nav {
-  max-width: 500px;
+  max-width: 600px;
   pointer-events: auto;
   background-color: var(--darkink);
+}
+
+/* Expanded State (scroll at top) */
+header .menu:not(.collapsed) nav {
+  max-width: 600px;
+  pointer-events: auto;
+  background-color: var(--darkink);
+}
+
+header .menu:not(.collapsed) .eyes {
+  opacity: 0;
+}
+
+header .menu:not(.collapsed) nav .inner {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Hide eyes on hover */
@@ -288,6 +304,81 @@ header .menu nav .primary .arrow {
   margin-left: 4px;
   font-size: 1rem;
   vertical-align: middle;
+}
+
+/* --- DROPDOWN MENU --- */
+.dropdown-container {
+  position: static;
+}
+
+.dropdown-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown-arrow {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+  margin-left: 4px;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: fixed;
+  top: 80px;
+  left: 200px;
+  background: var(--darkink);
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 140px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  z-index: 300;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--darkink);
+}
+
+.dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 20px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.036rem;
+  color: var(--lightgrey);
+  text-align: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--yellow);
 }
 
 /* --- BOOK MEETING BUTTON --- */
@@ -1704,5 +1795,156 @@ header .menu nav .primary .arrow {
     top: 15px;
     padding: 10px 14px;
     font-size: 1rem;
+  }
+}
+
+/* --- USE CASE PAGES --- */
+.usecase-page {
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.usecase-hero {
+  padding: 60px 40px 100px;
+}
+
+.usecase-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--darkink);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  margin-bottom: 40px;
+}
+
+.back-link:hover {
+  opacity: 1;
+}
+
+.back-arrow {
+  font-size: 1.6rem;
+}
+
+.usecase-title {
+  font-family: 'Shrikhand', cursive;
+  font-size: 5rem;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: var(--darkink);
+  text-transform: uppercase;
+}
+
+.usecase-title .highlight {
+  color: var(--yellow);
+  background: var(--darkink);
+  padding: 0 16px;
+  border-radius: 8px;
+}
+
+.usecase-subtitle {
+  font-family: 'Inconsolata', monospace;
+  font-size: 2.2rem;
+  line-height: 1.5;
+  color: var(--darkink);
+  opacity: 0.8;
+  margin-bottom: 60px;
+  max-width: 700px;
+}
+
+.usecase-content {
+  margin-bottom: 60px;
+}
+
+.usecase-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.usecase-feature {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usecase-feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.usecase-feature h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--darkink);
+}
+
+.usecase-feature p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--darkink);
+  opacity: 0.7;
+}
+
+.usecase-examples {
+  text-align: center;
+  padding: 40px;
+  background: var(--darkink);
+  border-radius: 20px;
+  color: var(--lightgrey);
+}
+
+.usecase-examples h2 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.usecase-examples p {
+  font-size: 1.6rem;
+  opacity: 0.8;
+}
+
+.usecase-cta {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .usecase-title {
+    font-size: 3.5rem;
+  }
+
+  .usecase-subtitle {
+    font-size: 1.8rem;
+  }
+
+  .usecase-features {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .usecase-hero {
+    padding: 40px 20px 80px;
   }
 }

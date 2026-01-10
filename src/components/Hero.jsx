@@ -69,7 +69,7 @@ function Hero({ scrollProgress = 0, launched = false }) {
           }}
         >
           <h1>
-            Meet Roger <br/>
+            Meet Roger
           </h1>
 
           <br/>

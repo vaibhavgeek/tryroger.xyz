@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -6,9 +7,23 @@ import Features from './components/Features';
 import WorksOnAnyApp from './components/WorksOnAnyApp';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import Dating from './pages/Dating';
+import Office from './pages/Office';
 
 // Set to true when the app is launched and available for download
 const launched = false;
+
+function HomePage({ scrollProgress, launched }) {
+  return (
+    <main>
+      <Hero scrollProgress={scrollProgress} launched={launched} />
+      <About />
+      <Features />
+      <WorksOnAnyApp />
+      <FAQ />
+    </main>
+  );
+}
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -30,13 +45,12 @@ function App() {
 
   return (
     <>
-      <Header launched={launched} />
-      <Hero scrollProgress={scrollProgress} launched={launched} />
-
-      <About />
-      <Features />
-      <WorksOnAnyApp />
-      <FAQ />
+      <Header launched={launched} scrollProgress={scrollProgress} />
+      <Routes>
+        <Route path="/" element={<HomePage scrollProgress={scrollProgress} launched={launched} />} />
+        <Route path="/usecases/dating" element={<Dating />} />
+        <Route path="/usecases/office" element={<Office />} />
+      </Routes>
       <Footer />
     </>
   );

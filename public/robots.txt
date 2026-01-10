@@ -1,0 +1,9 @@
+# Robots.txt for Roger AI
+# https://tryroger.xyz
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://tryroger.xyz/sitemap.xml

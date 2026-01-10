@@ -15,10 +15,9 @@ function Footer() {
           <div className="footer-section">
             <h4>Product</h4>
             <ul>
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#download">Download</a></li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#waitlist">Join Waitlist</a></li>
             </ul>
           </div>
 
