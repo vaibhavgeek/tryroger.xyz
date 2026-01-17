@@ -9,6 +9,7 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Dating from './pages/Dating';
 import Office from './pages/Office';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 // Set to true when the app is launched and available for download
 const launched = false;
@@ -50,6 +51,7 @@ function App() {
         <Route path="/" element={<HomePage scrollProgress={scrollProgress} launched={launched} />} />
         <Route path="/usecases/dating" element={<Dating />} />
         <Route path="/usecases/office" element={<Office />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </>

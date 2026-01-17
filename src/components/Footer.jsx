@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Footer() {
   return (
     <footer className="footer">
@@ -25,6 +27,7 @@ function Footer() {
             <h4>Company & Legal</h4>
             <ul>
               <li><a href="#terms">Terms of Services</a></li>
+              <li><Link to="/privacy">Privacy Policy</Link></li>
             </ul>
             <p className="footer-address">
               Alpine Heights, Navrangpura,<br />
