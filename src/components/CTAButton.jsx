@@ -4,7 +4,7 @@ import { AppStoreButton } from 'react-mobile-app-button';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 function CTAButton({ theme = 'light', showCat = true, launched = false }) {
-  const iOSUrl = 'https://apps.apple.com/us/app/expo-go/id982107779';
+  const iOSUrl = 'https://apps.apple.com/app/roger-ai-keyboard-clutch/id6757948941';
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 

@@ -12,7 +12,7 @@ import Office from './pages/Office';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
 // Set to true when the app is launched and available for download
-const launched = false;
+const launched = true;
 
 function HomePage({ scrollProgress, launched }) {
   return (
