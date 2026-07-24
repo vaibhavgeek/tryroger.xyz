@@ -1,138 +1,73 @@
-import { useState, useEffect, useRef } from 'react';
-import * as motion from 'motion/react-client';
+import { useState, useEffect } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-// Animation variants for features sliding from left (odd: 1, 3)
-const leftVariants = {
-  offscreen: {
-    x: -150,
-    opacity: 0,
+const features = [
+  {
+    title: 'Career',
+    question: '"Am I growing or just busy?"',
+    testimonial: '"After 2 weeks of talking through my mornings with Roger, I finally quit the job I\'d been complaining about for 6 months."',
+    author: '— Priya, 28, Product Manager',
   },
-  onscreen: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      bounce: 0.2,
-      duration: 1.2,
-    },
+  {
+    title: 'Relationships',
+    question: '"Why did that conversation bother me?"',
+    testimonial: '"I used to spiral after arguments. Now I talk to Roger for 5 minutes and actually understand what I\'m feeling before I text back."',
+    author: '— Marcus, 31, Designer',
   },
-};
-
-// Animation variants for features sliding from right (even: 2)
-const rightVariants = {
-  offscreen: {
-    x: 150,
-    opacity: 0,
+  {
+    title: 'Decisions',
+    question: '"Should I take the offer?"',
+    testimonial: '"Roger helped me think through a job switch I\'d been going back and forth on for months. Hearing myself say it out loud made it obvious."',
+    author: '— Aisha, 26, Engineer',
   },
-  onscreen: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      bounce: 0.2,
-      duration: 1.2,
-    },
-  },
-};
+];
 
 function Features() {
-  const [meterProgress, setMeterProgress] = useState(0);
-  const meterRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Animate meter from 0 to 100 when in view (slowly to positive)
-            let progress = 0;
-            const interval = setInterval(() => {
-              progress += 1;
-              if (progress <= 100) {
-                setMeterProgress(progress);
-              } else {
-                clearInterval(interval);
-              }
-            }, 30);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    if (meterRef.current) {
-      observer.observe(meterRef.current);
-    }
-
-    return () => {
-      if (meterRef.current) {
-        observer.unobserve(meterRef.current);
-      }
-    };
+    const interval = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % features.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="features-section">
       <div className="features-container">
 
-        {/* Feature 1: Saved countless relationships */}
-        <motion.div
-          className="feature-block feature-normal"
-          ref={meterRef}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ amount: 0.3 }}
-          variants={leftVariants}
-        >
-          <div className="feature-content">
-            <h3 className="feature-number">1.</h3>
-            <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Relationships</span></h2>
-            <p className="feature-subheading">
-              Don't ruin your relationships over an angry text.
-            </p>
-            <p className="feature-subtext">
-              Roger warns you by changing it's colors when you are about to share an angry/overtly excited/passive aggresive text. We also suggest a better text you can send instead.
-            </p>
+        <div className="carousel">
+          <div
+            className="carousel-track"
+            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          >
+            {features.map((feature, index) => (
+              <div key={index} className="feature-card">
+                <h2 className="feature-card-title">
+                  <span className="title-roger">Roger</span>{' '}
+                  <span className="title-relationships">{feature.title}</span>
+                </h2>
+                <p className="feature-card-question">{feature.question}</p>
+                <blockquote className="feature-card-testimonial">
+                  {feature.testimonial}
+                </blockquote>
+                <p className="feature-card-author">{feature.author}</p>
+              </div>
+            ))}
           </div>
-          <div className="feature-visual">
-            <div className="meter-container">
-              <div className="meter-bar">
-                <div className="meter-gradient"></div>
-                <div
-                  className="meter-pointer"
-                  style={{ left: `${meterProgress}%` }}
-                >
-                  <div className="pointer-arrow"></div>
-                </div>
-              </div>
-              <div className="meter-labels">
-                <span>Negative</span>
-                <span>Neutral</span>
-                <span>Positive</span>
-              </div>
 
-              {/* Tone demo with image and text bubbles */}
-              <div className="tone-demo-container">
-                <img
-                  src="/image_tone.jpg"
-                  alt="Tone detection demo"
-                  className="tone-demo-image"
-                />
-                <div className="tone-bubbles">
-                  <div className="tone-bubble bubble-warn bubble-warn-mobile bubble-warn-tablet bubble-warn-small">
-                    Warns you about the tone
-                  </div>
-                  <div className="tone-bubble bubble-suggest bubble-suggest-mobile bubble-suggest-tablet bubble-suggest-small">
-                    Suggests a better response
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="carousel-dots">
+            {features.map((_, index) => (
+              <button
+                key={index}
+                className={`carousel-dot ${index === activeIndex ? 'active' : ''}`}
+                onClick={() => setActiveIndex(index)}
+              />
+            ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* Centered Lottie Animation */}
+        {/* Dancing Cat */}
         <div className="lottie-center-wrapper">
           <div className="lottie-feature">
             <DotLottieReact
@@ -142,74 +77,6 @@ function Features() {
             />
           </div>
         </div>
-
-        {/* Feature 2: The Contextual Companion */}
-        <motion.div
-          className="feature-block feature-reverse"
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ amount: 0.3 }}
-          variants={rightVariants}
-        >
-          <div className="feature-content">
-            <h3 className="feature-number">2.</h3>
-            <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Decisions</span></h2>
-            <p className="feature-subheading">
-              Stop the Copy Paste Madness
-            </p>
-            <p className="feature-subtext">
-              Roger also helps with what to text and not just how. Want to get attention of right people? Comment on their X Post with Roger.
-            </p>
-
-
-
-          </div>
-          <div className="feature-visual">
-            <div className="decision-images-container">
-              <img src="/dec_1.jpg" alt="Social media context example" className="decision-image decision-image-1" />
-              <img src="/dec2_2.jpg" alt="Roger Cat response suggestions" className="decision-image decision-image-2" />
-
-              <div className="decision-bubbles">
-                <div className="decision-bubble bubble-copy-content bubble-copy-mobile bubble-copy-tablet bubble-copy-small">
-                  Copy content to add to roger memory
-                </div>
-                <div className="decision-bubble bubble-down-button bubble-down-mobile bubble-down-tablet bubble-down-small">
-                  Click on down button to input it
-                </div>
-                <div className="decision-bubble bubble-chat-roger bubble-chat-mobile bubble-chat-tablet bubble-chat-small">
-                  Chat with roger
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Feature 3: Swype */}
-        <motion.div
-          className="feature-block feature-normal"
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ amount: 0.3 }}
-          variants={leftVariants}
-        >
-          <div className="feature-content">
-            <h3 className="feature-number">3.</h3>
-            <h2 className="feature-title"><span className="title-roger">Roger</span> <span className="title-relationships">Swype</span></h2>
-            <p className="feature-subheading">
-              The best swype algorithm there is.
-            </p>
-            <p className="feature-subtext">
-              The iOS keyboards' swiping recognition annoyed us, so we sent our engineer to a cave to build out the best algorithm there is for gesture typing, and he delivered.
-            </p>
-          </div>
-          <div className="feature-visual">
-            <img
-              src="/swype.gif"
-              alt="Roger Swype gesture typing demo"
-              className="swype-demo-gif"
-            />
-          </div>
-        </motion.div>
 
       </div>
     </section>

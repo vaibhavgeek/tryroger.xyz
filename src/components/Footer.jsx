@@ -9,8 +9,7 @@ function Footer() {
             <h3>Roger</h3>
             <p>Your contextual companion for smarter conversations.</p>
             <p className="footer-contact">
-              <strong>Support:</strong> +91 8369683781<br />
-              <strong>Mail:</strong> <a href="mailto:support@tryroger.xyz">support@tryroger.xyz</a>
+              <strong>Mail:</strong> <a href="mailto:contact@vaibhavgeek.tech">contact@vaibhavgeek.tech</a>
             </p>
           </div>
 
@@ -30,8 +29,8 @@ function Footer() {
               <li><Link to="/privacy">Privacy Policy</Link></li>
             </ul>
             <p className="footer-address">
-              Alpine Heights, Navrangpura,<br />
-              Ahmedabad 380009<br />
+              1412 Market St,<br />
+              San Francisco, CA 94102, USA<br />
               CIN: U74993GJ2018PTC100739
             </p>
           </div>

@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { AppStoreButton } from 'react-mobile-app-button';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-function CTAButton({ theme = 'light', showCat = true, launched = false }) {
-  const iOSUrl = 'https://apps.apple.com/app/roger-ai-keyboard-clutch/id6757948941';
-  const [email, setEmail] = useState('');
+function CTAButton({ theme = 'light', showCat = true }) {
+  const [phone, setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email && !isSubmitting) {
+    if (phone && !isSubmitting) {
       setIsSubmitting(true);
       try {
         const response = await fetch('https://formspree.io/f/mkonnepn', {
@@ -20,11 +17,11 @@ function CTAButton({ theme = 'light', showCat = true, launched = false }) {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ phone }),
         });
         if (response.ok) {
           setSubmitted(true);
-          setEmail('');
+          setPhone('');
         }
       } catch (error) {
         console.error('Submission error:', error);
@@ -50,37 +47,32 @@ function CTAButton({ theme = 'light', showCat = true, launched = false }) {
         </div>
       )}
 
-      {launched ? (
-        <AppStoreButton
-          url={iOSUrl}
-          theme={theme}
-          className="custom-style"
-          width={260}
-          height={80}
-        />
-      ) : (
-        <form className="waitlist-form" onSubmit={handleSubmit}>
-          {submitted ? (
-            <div className="waitlist-success">
-              Thanks! You're on the list.
-            </div>
-          ) : (
-            <>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="waitlist-input"
-                required
-              />
-              <button type="submit" className="waitlist-btn" disabled={isSubmitting}>
-                {isSubmitting ? 'Joining...' : 'Join Waitlist'}
-              </button>
-            </>
-          )}
-        </form>
-      )}
+      <form className="waitlist-form" onSubmit={handleSubmit}>
+        {submitted ? (
+          <div className="waitlist-success">
+            Roger will text you shortly!
+          </div>
+        ) : (
+          <>
+            <input
+              type="tel"
+              placeholder="Enter your phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="waitlist-input"
+              required
+            />
+            <button type="submit" className="waitlist-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : "Let's Chat"}
+            </button>
+          </>
+        )}
+      </form>
+
+      <p className="cta-subtitle">
+        Roger calls you. Free. Private.<br /><br />
+        Talk to Roger everyday for 5 minutes, see an improved life.
+      </p>
     </motion.div>
   );
 }

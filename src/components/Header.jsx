@@ -1,6 +1,6 @@
 import Menu from './Menu';
 
-function Header({ launched = false, scrollProgress = 0 }) {
+function Header({ scrollProgress = 0 }) {
   const handleWaitlistClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -12,7 +12,7 @@ function Header({ launched = false, scrollProgress = 0 }) {
     <header>
       <Menu isScrollExpanded={isMenuExpanded} />
       <button className="meeting-btn" onClick={handleWaitlistClick}>
-        {launched ? 'Download' : 'Join Waitlist'}
+        Let's Chat
       </button>
     </header>
   );

@@ -4,23 +4,18 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Features from './components/Features';
-import WorksOnAnyApp from './components/WorksOnAnyApp';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Dating from './pages/Dating';
 import Office from './pages/Office';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
-// Set to true when the app is launched and available for download
-const launched = true;
-
-function HomePage({ scrollProgress, launched }) {
+function HomePage({ scrollProgress }) {
   return (
     <main>
-      <Hero scrollProgress={scrollProgress} launched={launched} />
+      <Hero scrollProgress={scrollProgress} />
       <About />
       <Features />
-      <WorksOnAnyApp />
       <FAQ />
     </main>
   );
@@ -46,11 +41,10 @@ function App() {
 
   return (
     <>
-      <Header launched={launched} scrollProgress={scrollProgress} />
+      <Header scrollProgress={scrollProgress} />
       <Routes>
-        <Route path="/" element={<HomePage scrollProgress={scrollProgress} launched={launched} />} />
-        <Route path="/usecases/dating" element={<Dating />} />
-        <Route path="/usecases/office" element={<Office />} />
+        <Route path="/" element={<HomePage scrollProgress={scrollProgress} />} />
+        
         <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />

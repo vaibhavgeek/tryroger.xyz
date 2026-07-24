@@ -1,57 +1,47 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import CTAButton from './CTAButton';
 
-export function Demo() {
-  const [isVisible, setIsVisible] = useState(false);
-  const phoneRef = useRef(null);
+const WORDS = ['ambition', 'career', 'growth', 'progress', 'kindness', 'courage', 'fearless', 'focus', 'discipline', 'balance', 'grit', 'hustle', 'love'];
+
+function FloatingWords() {
+  const [visibleWords, setVisibleWords] = useState([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      {
-        threshold: 0.2, // Trigger when 20% of phone is visible
-      }
-    );
-
-    if (phoneRef.current) {
-      observer.observe(phoneRef.current);
-    }
-
-    return () => {
-      if (phoneRef.current) {
-        observer.unobserve(phoneRef.current);
-      }
+    let id = 0;
+    let index = 0;
+    const spawn = () => {
+      const word = WORDS[index % WORDS.length];
+      index++;
+      const left = 10 + Math.random() * 80;
+      const top = 10 + Math.random() * 70;
+      const newWord = { id: id++, word, left, top };
+      setVisibleWords(prev => [...prev, newWord]);
+      setTimeout(() => {
+        setVisibleWords(prev => prev.filter(w => w.id !== newWord.id));
+      }, 2000);
     };
+
+    spawn();
+    const interval = setInterval(spawn, 800);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section id="next-section" className="demo-section">
-      <div className="demo-container">
-        <div
-          ref={phoneRef}
-          className={`iphone-frame ${isVisible ? 'visible' : ''}`}
+    <div className="floating-words">
+      {visibleWords.map(({ id, word, left, top }) => (
+        <span
+          key={id}
+          className="floating-word"
+          style={{ left: `${left}%`, top: `${top}%` }}
         >
-          <div className="iphone-notch"></div>
-          <div className="iphone-screen">
-            {/* GIF will be added here later */}
-            <div className="placeholder-content">
-              <p>Demo GIF goes here</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          {word}
+        </span>
+      ))}
+    </div>
   );
 }
 
-
-function Hero({ scrollProgress = 0, launched = false }) {
+function Hero({ scrollProgress = 0 }) {
   // Calculate transform values based on scroll - VERY strong parallax effect
   const scale = 1 - (scrollProgress * 0.5); // Scale from 1 to 0.5 (much more dramatic)
   const opacity = 1 - (scrollProgress * 3); // Fade out very fast
@@ -59,6 +49,7 @@ function Hero({ scrollProgress = 0, launched = false }) {
 
   return (
     <section id="home" className="hero">
+      <FloatingWords />
       <div className="hero-sticky">
         <div
           className="hero-content"
@@ -69,22 +60,21 @@ function Hero({ scrollProgress = 0, launched = false }) {
           }}
         >
           <h1>
-            Meet Roger
+            Roger that. 🫡
           </h1>
 
           <br/>
           <h2>
-            <span className="word-your">AI Companion</span> <br/>
-            <span className="word-contextual">in your</span> <br/>
-            <span className="word-companion">keyboard</span>
+            <span className="word-your">be heard,</span> <br/>
+            <span className="word-contextual">grow,</span> <br/>
+            <span className="word-companion">and journal</span>
           </h2>
 
           <div id="waitlist" className="hero-cta">
-            <CTAButton theme="light" showCat={true} launched={launched} />
+            <CTAButton theme="light" showCat={true} />
           </div>
         </div>
       </div>
-      <Demo />
     </section>
   );
 }
