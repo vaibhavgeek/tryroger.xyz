@@ -6,23 +6,27 @@ function FAQ() {
   const faqs = [
     {
       question: "How does Roger work?",
-      answer: "Roger uses advanced AI to understand the context of your conversations and provides intelligent suggestions in real-time."
+      answer: "Roger calls you for 5 minutes every day at a time you choose. You talk through whatever's on your mind — career moves, relationships, decisions — and Roger listens, asks thoughtful follow-up questions, and helps you reflect. It's like journaling, but out loud."
     },
     {
       question: "Is my data secure?",
-      answer: "Absolutely. We prioritize your privacy and never store or share your personal conversations. All processing happens securely on your device."
+      answer: "Yes. Your conversations are completely private and never shared with anyone. We don't sell your data or use it for ads. Everything you say to Roger stays between you and Roger."
     },
     {
-      question: "Which platforms does Roger support?",
-      answer: "Roger is currently available on iOS with Android support coming soon. It works seamlessly with all major messaging apps."
+      question: "Is Roger free?",
+      answer: "Yes, Roger is free to use. We believe everyone deserves a daily space for reflection and growth without a price tag in the way."
     },
     {
-      question: "Can I customize Roger's suggestions?",
-      answer: "Yes! Roger learns from your communication style and adapts over time. You can also customize settings to match your preferences."
+      question: "What do people talk to Roger about?",
+      answer: "Anything that matters to you. People use Roger to think through career decisions, process relationship dynamics, set goals, track personal growth, or simply decompress after a long day. There's no wrong topic."
     },
     {
-      question: "Is there a free trial?",
-      answer: "Yes, we offer a 7-day free trial so you can experience Roger's capabilities before subscribing."
+      question: "How is this different from journaling or therapy?",
+      answer: "Roger sits in between. Unlike a journal, Roger talks back — asking questions that help you see things differently. Unlike therapy, there's no scheduling, no cost, and no pressure. It's a lightweight daily habit that compounds over time."
+    },
+    {
+      question: "How do I get started?",
+      answer: "Enter your phone number above and Roger will text you to set up your first call. Pick a time that works, and Roger will call you every day at that time. That's it — no app to download, no account to create."
     }
   ];
 

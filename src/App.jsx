@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import TrustedBy from './components/TrustedBy';
 import About from './components/About';
 import Features from './components/Features';
 import FAQ from './components/FAQ';
@@ -14,6 +15,7 @@ function HomePage({ scrollProgress }) {
   return (
     <main>
       <Hero scrollProgress={scrollProgress} />
+      <TrustedBy />
       <About />
       <Features />
       <FAQ />

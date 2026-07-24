@@ -736,6 +736,92 @@ header .menu nav .primary .arrow {
   font-size: 1.6rem;
 }
 
+/* --- TRUSTED BY SECTION --- */
+.trusted-by {
+  padding: 30px 40px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.trusted-by-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.3em;
+  color: #999999;
+  letter-spacing: 0.05em;
+  margin-bottom: 32px;
+}
+
+.trusted-by-ticker {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.trusted-by-track {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: max-content;
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.trusted-by-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+.trusted-by-item img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.6);
+  opacity: 0.7;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.trusted-by-item img:hover {
+  opacity: 1;
+  filter: grayscale(0%) brightness(1);
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .trusted-by {
+    padding: 20px 20px 30px;
+  }
+
+  .trusted-by-label {
+    font-size: 1.4rem;
+  }
+
+  .trusted-by-track {
+    gap: 60px;
+    animation-duration: 20s;
+  }
+
+  .trusted-by-item {
+    height: 30px;
+  }
+}
+
 /* --- ABOUT SECTION --- */
 .about-section {
   background: var(--darkink); /* Dark background */
@@ -904,6 +990,16 @@ header .menu nav .primary .arrow {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--yellow);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-card-author-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 

@@ -6,19 +6,22 @@ const features = [
     title: 'Career',
     question: '"Am I growing or just busy?"',
     testimonial: '"After 2 weeks of talking through my mornings with Roger, I finally quit the job I\'d been complaining about for 6 months."',
-    author: '— Priya, 28, Product Manager',
+    author: '— Tushar Ojha',
+    image: '/tushar.jpeg',
   },
   {
     title: 'Relationships',
     question: '"Why did that conversation bother me?"',
     testimonial: '"I used to spiral after arguments. Now I talk to Roger for 5 minutes and actually understand what I\'m feeling before I text back."',
-    author: '— Marcus, 31, Designer',
+    author: '— Alex Morris',
+    image: '/alex.jpg',
   },
   {
     title: 'Decisions',
     question: '"Should I take the offer?"',
     testimonial: '"Roger helped me think through a job switch I\'d been going back and forth on for months. Hearing myself say it out loud made it obvious."',
-    author: '— Aisha, 26, Engineer',
+    author: '— Lars Heidenreich',
+    image: '/lars.jpeg',
   },
 ];
 
@@ -51,7 +54,14 @@ function Features() {
                 <blockquote className="feature-card-testimonial">
                   {feature.testimonial}
                 </blockquote>
-                <p className="feature-card-author">{feature.author}</p>
+                <div className="feature-card-author">
+                  <img
+                    src={feature.image}
+                    alt={feature.author}
+                    className="feature-card-author-image"
+                  />
+                  <p>{feature.author}</p>
+                </div>
               </div>
             ))}
           </div>
