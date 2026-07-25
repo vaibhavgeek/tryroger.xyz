@@ -70,7 +70,7 @@ function CTAButton({ theme = 'light', showCat = true }) {
       </form>
 
       <p className="cta-subtitle">
-        Roger calls you. Free. Private.<br /><br />
+        Roger calls you or you can Roger. Free. Private.<br /><br />
         Talk to Roger everyday for 5 minutes, see an improved life.
       </p>
     </motion.div>

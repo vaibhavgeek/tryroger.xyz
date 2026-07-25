@@ -15,7 +15,7 @@ function HomePage({ scrollProgress }) {
   return (
     <main>
       <Hero scrollProgress={scrollProgress} />
-      <TrustedBy />
+      {/* <TrustedBy /> */}
       <About />
       <Features />
       <FAQ />

@@ -450,6 +450,13 @@ header .menu nav .primary .arrow {
   animation: wordPopup 2s ease-in-out forwards;
 }
 
+.floating-word-strike {
+  text-decoration: line-through;
+  text-decoration-thickness: 2.5px;
+  text-decoration-color: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.15);
+}
+
 @keyframes wordPopup {
   0% {
     opacity: 0;

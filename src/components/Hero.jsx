@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CTAButton from './CTAButton';
 
 const WORDS = ['ambition', 'career', 'growth', 'progress', 'kindness', 'courage', 'fearless', 'focus', 'discipline', 'balance', 'grit', 'hustle', 'love'];
+const STRIKETHROUGH_WORDS = ['bed rotting', 'laziness', 'ego', 'pride', 'procrastination', 'doom scrolling', 'self-doubt', 'overthinking', 'excuses'];
 
 function FloatingWords() {
   const [visibleWords, setVisibleWords] = useState([]);
@@ -9,12 +10,23 @@ function FloatingWords() {
   useEffect(() => {
     let id = 0;
     let index = 0;
+    let strikeIndex = 0;
     const spawn = () => {
-      const word = WORDS[index % WORDS.length];
+      // Alternate: every 3rd word is a strikethrough word
+      const isStrike = index % 3 === 2;
+      let word;
+      let strike = false;
+      if (isStrike) {
+        word = STRIKETHROUGH_WORDS[strikeIndex % STRIKETHROUGH_WORDS.length];
+        strikeIndex++;
+        strike = true;
+      } else {
+        word = WORDS[(index - strikeIndex) % WORDS.length];
+      }
       index++;
       const left = 10 + Math.random() * 80;
       const top = 10 + Math.random() * 70;
-      const newWord = { id: id++, word, left, top };
+      const newWord = { id: id++, word, left, top, strike };
       setVisibleWords(prev => [...prev, newWord]);
       setTimeout(() => {
         setVisibleWords(prev => prev.filter(w => w.id !== newWord.id));
@@ -28,10 +40,10 @@ function FloatingWords() {
 
   return (
     <div className="floating-words">
-      {visibleWords.map(({ id, word, left, top }) => (
+      {visibleWords.map(({ id, word, left, top, strike }) => (
         <span
           key={id}
-          className="floating-word"
+          className={`floating-word${strike ? ' floating-word-strike' : ''}`}
           style={{ left: `${left}%`, top: `${top}%` }}
         >
           {word}
